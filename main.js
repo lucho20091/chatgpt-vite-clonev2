@@ -6,6 +6,7 @@ const logoEl = document.querySelector('.logo-div');
 const cardsEl = document.querySelector('.cards');
 const messagesEl = document.querySelector('.messages');
 const inputBox = document.querySelector('.input-box')
+const clearEl = document.getElementById('clear-conversations')
 
 let firstMessage = true;
 
@@ -70,3 +71,15 @@ function receiveMessage(text) {
     testEl.classList.add('bot-response');
     messagesEl.appendChild(testEl);
 }
+
+// Logic
+function clearConversation(){
+    const confirmClear = confirm('Do you want to delete the conversation history?')
+    if (confirmClear){
+        while (messagesEl.firstChild){
+            messagesEl.removeChild(messagesEl.lastChild)
+        }
+    }
+}
+
+clearEl.addEventListener('click', clearConversation)

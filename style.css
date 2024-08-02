@@ -60,6 +60,7 @@ nav > ul > li > a{
   flex: 1;
   padding-left: 12px;
   font-size: 1rem;
+  gap: 6px;
 }
 nav > ul > li > a:hover{
   background-color: var(--black-color);
