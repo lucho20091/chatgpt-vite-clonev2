@@ -49,7 +49,6 @@ async function getGroqChatCompletion(userMessage) {
     });
 }
 
-app.use(express.static('public'));
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
