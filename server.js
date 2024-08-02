@@ -30,7 +30,10 @@ app.post('/api/chatbot', async (req, res) => {
     }
 });
 
+const messages = []
 async function getGroqChatCompletion(userMessage) {
+    messages.push(userMessage)
+    console.log(messages)
     return groq.chat.completions.create({
         messages: [
             {
@@ -39,7 +42,7 @@ async function getGroqChatCompletion(userMessage) {
             },
             {
                 role: "system",
-                content: "you respond as if you were 5 years old and in short answers like 10 words or less",
+                content: "you respond as if you were 5 years old and in short answers like 10 words or less, you have access to the user message" + messages,
             },
         ],
         model: "llama3-8b-8192",

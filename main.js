@@ -5,6 +5,7 @@ const mainEl = document.querySelector('main');
 const logoEl = document.querySelector('.logo-div');
 const cardsEl = document.querySelector('.cards');
 const messagesEl = document.querySelector('.messages');
+const inputBox = document.querySelector('.input-box')
 
 let firstMessage = true;
 
@@ -16,12 +17,14 @@ formEl.addEventListener('submit', (e) => {
         styleMessageEl();
         mainEl.removeChild(logoEl);
         mainEl.removeChild(cardsEl);
+        inputBox.style.margin = "0"
     }
     firstMessage = false;
     const userMessage = inputEl.value;
     console.log(userMessage);
     sendMessage(userMessage);
     inputEl.value = '';
+    messagesEl.scrollTo(0, messagesEl.scrollHeight);
 });
 
 async function sendMessage(text) {
@@ -42,6 +45,7 @@ async function sendMessage(text) {
         });
         const data = await response.json();
         receiveMessage(data.response);
+        messagesEl.scrollTo(0, messagesEl.scrollHeight);
     } catch (error) {
         receiveMessage("Failed to get response from the bot");
     }
