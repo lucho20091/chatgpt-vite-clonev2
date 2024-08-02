@@ -22,8 +22,7 @@ body{
 header{
   background-color: var(--main-bg-color);
   width: 282px;
-  min-height: 764px;
-  max-height: 800px;
+  height: 764px;
   padding: 20px;
   border-right: 1px solid var(--gray-color);
   position: relative;
@@ -82,8 +81,7 @@ header::before{
 /* Main */
 main{
   flex: 0 1 1118px;
-  max-height: 800px;
-  min-height: 764px;
+  height: 764px;
   display: flex;
   flex-direction: column;
   background-color: var(--main-bg-color);
@@ -124,6 +122,13 @@ main{
   flex-direction: column;
   overflow-y: auto;
 }
+.div-message{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
 .message{
   overflow-wrap: break-word;
   max-width: 50%;
@@ -132,12 +137,22 @@ main{
   color: var(--black-color);
   font-size: 1.4rem;
   font-weight: bold;
-  margin-top: 20px;
+
 }
 .my-message{
-  margin: 20px 0 0 auto;
+  margin-left: auto;
   justify-content: flex-end;
   align-items: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bot-response{
+  margin-right: auto;
+}
+.profile-picture{
+  width: 46px;
+  height: 46px;
 }
 .input-box{
   margin-top: 80px;

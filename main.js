@@ -28,10 +28,17 @@ formEl.addEventListener('submit', (e) => {
 });
 
 async function sendMessage(text) {
-    const newEl = document.createElement('p');
-    newEl.textContent = text;
-    newEl.classList.add('message');
-    newEl.classList.add('my-message');
+    const newEl = document.createElement('div');
+    const newTextEl = document.createElement('p');
+    const newProfile = document.createElement('img')
+    newProfile.src = '/assets/default-profile.png'
+    newTextEl.textContent = text;
+    newEl.appendChild(newTextEl)
+    newEl.appendChild(newProfile)
+    newEl.classList.add('div-message')
+    newProfile.classList.add('profile-picture')
+    newTextEl.classList.add('message');
+    newTextEl.classList.add('my-message');
     messagesEl.appendChild(newEl);
 
     // Send the message to the backend
