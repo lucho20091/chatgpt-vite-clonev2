@@ -9,23 +9,21 @@
 *, *::before, *::after{
   box-sizing: border-box;
 }
-html{
-  display: grid;
-  place-items: center;
-  height: 100%;
-}
+
 body{
   display: flex;
   color: var(--white-color);
   margin: 0 auto;
   padding: 0;
-  width: 1440px;
-  height: 1024px;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 header{
   background-color: var(--main-bg-color);
   width: 282px;
-  height: 1024px;
+  min-height: 764px;
+  max-height: 800px;
   padding: 20px;
   border-right: 1px solid var(--gray-color);
   position: relative;
@@ -70,8 +68,7 @@ nav > ul > li > a:hover{
 nav > .previous-chats{
   display: flex;
   flex-grow: 1;
-  height: 492px;
-
+  height: 300px;
 }
 header::before{
   content: '';
@@ -84,11 +81,12 @@ header::before{
 }
 /* Main */
 main{
+  flex: 0 1 1118px;
+  max-height: 800px;
+  min-height: 764px;
   display: flex;
   flex-direction: column;
   background-color: var(--main-bg-color);
-  flex: 1;
-  width: 1158px;
   align-items: center;
   justify-content: flex-end;
 }
@@ -96,18 +94,21 @@ main{
   margin-top: 80px;
   display: flex;
   align-items: flex-start;
+  gap: 20px;
 }
 .card{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
 }
 .card-ul {
   list-style: none;
   display: flex;
   flex-direction:column;
-  gap: 10px;
+  gap: 10px;  
+  padding: 0;
 }
 .card-ul > li{
   background-color: var(--gray-color);
@@ -138,16 +139,9 @@ main{
   justify-content: flex-end;
   align-items: flex-end;
 }
-
-
-
-
-
-
-
-
 .input-box{
-  margin-top: 232px;
+  margin-top: 80px;
+  margin-bottom: 20px;
   background-color: var(--black-color);
   width: 760px;
   height: 60px;
@@ -162,7 +156,7 @@ main{
   height: 100%;
 }
 .input-box > form > input {
-  flex: 1;
+  flex: 1 1;
   height: 60px;
   background: transparent;
   color: var(--gray-color);
@@ -178,4 +172,46 @@ main{
 }
 .input-box > form > button:hover {
   background-color: var(--purple-black-color)
+}
+@media (max-width: 1158px){
+  header{
+    display: none;
+  }
+}
+@media (max-width: 884px){
+  .cards{
+    display: none;
+  }
+  main{
+    justify-content: space-between;
+  }
+  .logo-div{
+    margin-top: 40px;
+  }
+  .input-box{
+    width: 80%;
+  }
+}
+@media (max-width: 500px){
+  body{
+    width: 100%;
+  }
+  main{
+    width: 100%;
+  }
+  .input-box{
+    width: 90%;
+    border-radius: 0;
+  }
+  .input-box > form {
+    padding: 0;
+    width: 100%;
+  }
+  .input-box > form > input {
+    width: 100%;
+    flex: 3;
+  }
+  .input-box > form > #submit-btn {
+    flex: 1;
+  }
 }

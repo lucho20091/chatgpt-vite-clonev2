@@ -17,7 +17,7 @@ formEl.addEventListener('submit', (e) => {
         styleMessageEl();
         mainEl.removeChild(logoEl);
         mainEl.removeChild(cardsEl);
-        inputBox.style.margin = "0"
+        inputBox.style.marginTop = "0"
     }
     firstMessage = false;
     const userMessage = inputEl.value;
